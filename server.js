@@ -37,8 +37,10 @@ app.get('/home', (_, res) => {
 })
 
 app.get('/available', (_, res) => {
-  BooksStatus.show_all_books_status(res);
-})
+  BooksStatus.show_all_books_status()
+    .then(data => res.send(data));
+});
+
 
 app.get('/books', (_, res) => {
   Books.show_books()
